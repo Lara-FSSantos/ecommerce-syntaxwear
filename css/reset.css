@@ -1,0 +1,55 @@
+/* Melhorar o render de fontes em WebKit/Gecko */
+:root{
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+}
+
+/* Box sizing universal */
+*,*::before,*::after{
+	box-sizing:border-box;
+}
+
+/* Remover margens padrão dos elementos que normalmente têm */
+html,body,p,figure,blockquote,dl,dd,h1,h2,h3,h4,h5,h6{
+	margin:0;
+}
+
+/* Remover estilos de listas quando usadas como listas acessíveis */
+ul[role='list'],ol[role='list']{
+	list-style:none;
+}
+
+/* Melhor experiência de rolagem quando foco estiver dentro do documento */
+html:focus-within{scroll-behavior:smooth}
+
+/* Links sem classe preservam comportamento de underline legível */
+a:not([class]){text-decoration-skip-ink:auto}
+
+/* Imagens e mídia responsiva */
+img,picture,video,canvas,svg{
+	display:block;
+	max-width:100%;
+}
+
+/* Herdar fonte em inputs e botões para consistência */
+input,button,textarea,select{font:inherit}
+
+/* Remover estilos padrão de botão (pode ser restabelecido em components) */
+button{background:none;border:0;padding:0}
+
+/* Tabelas */
+table{border-collapse:collapse;border-spacing:0}
+
+/* Cursor pointer para elementos de interação */
+:where(button,[role='button']){cursor:pointer}
+
+/* Elementos ocultos */
+[hidden]{display:none}
+
+/* Respeitar preferência de redução de movimento */
+@media (prefers-reduced-motion: reduce){
+	html:focus-within{scroll-behavior:auto}
+	*,*::before,*::after{animation-duration:0.001ms!important;animation-iteration-count:1!important;transition-duration:0.001ms!important}
+}
+
+/* Fim do reset */
